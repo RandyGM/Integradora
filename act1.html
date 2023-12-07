@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Completar Oraciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffd1dc; /* Fondo rosa pastel */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #game-container {
+            max-width: 600px;
+        }
+
+        #sentence {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #input-word {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        #submit-btn {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <h2>Juego de Completar Oraciones</h2>
+    <div id="sentence">El perro juega con <span id="missing-word" style="color: red;">___</span>.</div>
+    <input type="text" id="input-word" placeholder="Ingresa la palabra que falta">
+    <br>
+    <button id="submit-btn" onclick="checkAnswer()">Comprobar</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function checkAnswer() {
+        var missingWord = "papa";
+        var userAnswer = document.getElementById("input-word").value.trim().toLowerCase();
+
+        var resultContainer = document.getElementById("result");
+
+        if (userAnswer === missingWord) {
+            resultContainer.style.color = "green";
+            resultContainer.innerHTML = "¡Correcto! La palabra es " + missingWord + ".";
+        } else {
+            resultContainer.style.color = "red";
+            resultContainer.innerHTML = "Incorrecto. Inténtalo de nuevo.";
+        }
+    }
+</script>
+
+</body>
+</html>
+
+

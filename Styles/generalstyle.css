@@ -1,0 +1,71 @@
+h1 {
+    margin: 48px;
+}
+
+#contacto, #aviso{
+    margin-top: 64px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: block;
+    width: 480px;
+}
+
+li {
+    list-style: none;
+}
+
+#perfil img{
+    margin-top: 64px;
+    border-radius: 50%;
+    width: 96px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: block;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#que_es {
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 64px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 64px;
+}
+
+#que_es h2{
+    margin-bottom: 20px;
+    display: block;
+}
+
+#act li a{
+    font-size: medium;
+    color: #333;
+    text-decoration: none;
+}
+
+#act li{
+    font-size: 24px;
+    font-style: oblique;
+}
+
+#act li img {
+    height: 15%;
+}
+
+@media(max-width: 610px) {
+    #que_es {
+        width: 80%;
+        transition: all 0.2s ease-in-out;
+    }
+}

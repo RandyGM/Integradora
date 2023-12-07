@@ -1,0 +1,97 @@
+#loggin form, #registro form, #perfil form{
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 64px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 64px;
+}
+
+#loggin h2, #registro h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+#loggin label, #registro label {
+    font-size: 18px;
+    margin-bottom: 5px;
+    display: block;
+}
+#loggin input[type="text"],
+#loggin input[type="password"],
+#registro input[type="email"],
+#registro input[type="text"],
+#registro input[type="password"] {
+    width: 99%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+#checkboxtermi {
+    align-items: center;
+    display: flex;
+    justify-content: center; /* Added: center the checkbox and its text */
+}
+#checkboxtermi input[type="checkbox"] {
+    margin-right: 5px; /* Added: add some spacing between the checkbox and the text */
+}
+
+#loggin input[type="submit"], #registro input[type="submit"]{
+    background-color: #f1a0a0;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    justify-content: center;
+    display: flex;
+    width: 99%;
+    text-align: center;
+    font-style: oblique;
+    
+}
+
+#perfil input[type="submit"]{
+    background-color: #f1a0a0;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    justify-content: center;
+    display: block; /* o inline-block */
+    width: 50%;
+    text-align: center;
+    font-style: oblique;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loggin input[type="submit"]:hover, #registro input[type="submit"]:hover, #perfil input[type="submit"]:hover {
+    background-color: #c1bbf7;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(117, 59, 218);
+}
+
+#checkboxtermi {
+    margin-top: 12px;
+}
+
+@media(max-width: 610px) {
+    #que_es {
+        width: 40%;
+        transition: all 0.2s ease-in-out;
+    }
+}

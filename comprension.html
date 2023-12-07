@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad de Lectura</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #fde3cf;
+            color: #4f4f4f;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #ff7b54;
+        }
+
+        .instructions {
+            margin-top: 20px;
+        }
+
+        .exercise {
+            margin-top: 30px;
+            font-size: 18px;
+            background-color: #f8d7b5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .option {
+            margin: 0 10px;
+            padding: 10px;
+            background-color: #ff7b54;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .option:hover {
+            background-color: #ff5533;
+        }
+
+        .children-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Actividad de Lectura: Formando Palabras</h1>
+
+    <div class="instructions">
+        <p>¡Hola niños! Hoy aprenderemos a formar palabras.</p>
+        <p>Cada vez que aciertes, avanzarás de nivel. Aquí tienes tu primer ejercicio:</p>
+    </div>
+
+    <div class="exercise" id="exercise-container">
+        <!-- El ejercicio se generará dinámicamente aquí -->
+    </div>
+
+    <img src="https://placekitten.com/200/200" alt="Niño" class="children-image">
+
+    <script>
+        let currentLevel = 1;
+
+        function generateExercise() {
+            const exerciseContainer = document.getElementById('exercise-container');
+            const correctAnswer = generateRandomWord();
+            const jumbledAnswer = jumbleWord(correctAnswer);
+            const isCorrectOptionFirst = Math.random() < 0.5; // Para decidir si la opción correcta está primero o segundo
+            const options = generateOptions(correctAnswer, isCorrectOptionFirst);
+
+            exerciseContainer.innerHTML = `
+                <p>Nivel ${currentLevel}</p>
+                <p>Pista: ${generateHint(correctAnswer)}</p>
+                <p>Forma la palabra:</p>
+                <p>${jumbledAnswer}</p>
+                <div class="options">
+                    ${options.map((option, index) => `<button class="option" onclick="checkAnswer('${option}', '${correctAnswer}')">${option}</button>`).join('')}
+                </div>
+            `;
+        }
+
+        function generateRandomWord() {
+            const words = ['papa', 'mama', 'casa', 'escuela', 'perro', 'gato', 'sol', 'luna'];
+            return words[Math.floor(Math.random() * words.length)];
+        }
+
+        function jumbleWord(word) {
+            return word.split('').sort(() => Math.random() - 0.5).join('');
+        }
+
+        function generateOptions(correctAnswer, isCorrectOptionFirst) {
+            const incorrectAnswer = generateRandomWord();
+            return isCorrectOptionFirst ? [correctAnswer, incorrectAnswer] : [incorrectAnswer, correctAnswer];
+        }
+
+        function generateHint(word) {
+            // Puedes personalizar las pistas según las palabras
+            const hints = {
+                'papa': 'Algo que comemos y se cultiva en la tierra.',
+                'mama': 'La persona que nos cuida y ama en la familia.',
+                'casa': 'Donde vivimos y descansamos.',
+                'escuela': 'Lugar donde aprendemos cosas nuevas.',
+                'perro': 'Un amigo peludo que ladra.',
+                'gato': 'Un amigo peludo que maúlla.',
+                'sol': 'Nos da luz y calor durante el día.',
+                'luna': 'Brilla en el cielo durante la noche.'
+            };
+            return hints[word] || 'Una pista para formar la palabra.';
+        }
+
+        function checkAnswer(selectedAnswer, correctAnswer) {
+            if (selectedAnswer === correctAnswer) {
+                alert(`¡Correcto! Has formado la palabra "${correctAnswer}". ¡Bien hecho!`);
+                currentLevel++;
+                generateExercise();
+            } else {
+                alert('Oops, parece que la respuesta no es correcta. Intenta de nuevo.');
+            }
+        }
+
+        // Genera el primer ejercicio al cargar la página
+        generateExercise();
+    </script>
+</body>
+</html>
+

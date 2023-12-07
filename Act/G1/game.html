@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="gamestyle.css">
+  <title>Mini Juego</title>
+</head>
+<body>
+    <div id="game-container">
+        <div id="phrase-container">
+            <p id="random-phrase"></p>
+        </div>
+        <div id="blank-container" class="container" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+            <p>Frases en blanco:</p>
+        </div>
+        <div id="word-container" class="container" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+            <p>Organiza la frase:</p>
+        </div>
+        
+        <button id="check-button">Verificar</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
